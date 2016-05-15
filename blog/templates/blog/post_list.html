@@ -1,21 +1,12 @@
-<html>
-    <head>
-        <title>:)</title>
-    </head>
-    <body>
-    	<div>
-    		<h1><em>1St HTML</em></h1>
-    		<h2><a href="https://djangogirls.org/chihuahua/">in DJANGOGIRLS</a></h2>
-    		<h3>Super </h3>
-    		<p>Hi there!</p>
-        	<p><strong>Super Moraima!</strong></p>
-    	</div>
-    	{% for post in posts %}
-        	<div>
-            	<p>published: {{ post.published_date }}</p>
-            	<h1><a href="">{{ post.title }}</a></h1>
-            	<p>{{ post.text|linebreaks }}</p>
-        	</div>
-    	{% endfor %}
-    </body>
-</html>
+{% extends 'blog/base.html' %}
+{% block content %}
+    {% for post in posts %}
+        <div class="post">
+            <div class="date">
+                {{ post.published_date }}
+            </div>
+            <h1><a href="">{{ post.title }}</a></h1>
+            <p>{{ post.text|linebreaks }}</p>
+        </div>
+    {% endfor %}
+{% endblock content %}
